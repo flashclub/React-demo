@@ -3,24 +3,29 @@ import ReactDOM from "react-dom";
 import "./index.css";
 
 // function Chessboard() {
+const initMap = [
+  [null, null, null],
+  [null, null, null],
+  [null, null, null]
+];
 function Div() {
-  let [mapArray, setMapArray] = useState([
-    [null, null, null],
-    [null, null, null],
-    [null, null, null]
-  ]);
+  let [mapArray, setMapArray] = useState(initMap);
+  let [isWinTarget, setIsWinTarget] = useState(false);
   let [n, setN] = useState(0);
+  let [whichWin, setWhichWinTarget] = useState(null);
   function onClickFns(data1, data2) {
     console.log("点击了", data1, data2);
     let newMapArray = JSON.parse(JSON.stringify(mapArray));
+    if (newMapArray[data1][data2]) return alert("不可重复点击");
+
     newMapArray[data1][data2] = n % 2 ? "x" : "o";
     setN(n + 1);
     console.log(newMapArray);
     setMapArray(newMapArray);
     if (isWin(newMapArray)) {
-      console.log("win");
-      // alert("赢了！");
-      // return;
+      console.log("win", newMapArray[data1][data2]);
+      setWhichWinTarget(newMapArray[data1][data2]);
+      setIsWinTarget(true);
     }
   }
   function isWin(array) {
@@ -31,27 +36,32 @@ function Div() {
         element[1] === element[2] &&
         element[2] !== null
       ) {
+        console.log("error 2");
         return true;
       }
       if (
-        array[index][0] === array[index][1] &&
-        array[index][1] === array[index][2] &&
-        array[index][2] != null
+        array[0][index] === array[1][index] &&
+        array[1][index] === array[2][index] &&
+        array[2][index] != null
       ) {
+        console.log("error x");
+
         return true;
       }
       if (
         array[0][0] === array[1][1] &&
         array[1][1] === array[2][2] &&
-        array[index][2] != null
+        array[2][2] != null
       ) {
+        console.log("error 3");
         return true;
       }
       if (
         array[0][2] === array[1][1] &&
         array[1][1] === array[2][0] &&
-        array[index][2] != null
+        array[2][0] != null
       ) {
+        console.log("error 4");
         return true;
       }
     }
@@ -63,23 +73,39 @@ function Div() {
       </div>
     );
   }
+  function closeWrap() {
+    console.log("关闭赢了的wrap");
+    setIsWinTarget(false);
+    setMapArray(initMap);
+  }
+  function clickP(event) {
+    event.stopPropagation();
+  }
   function ShowMap() {
     return (
-      <div>
+      <div className="cellMap">
         {mapArray.map((items, row) => (
-          <div className="row">
+          <div className="row" key={row}>
             {items.map((item, col) => (
-              <Cell onClickFn={() => onClickFns(row, col)} content={item} />
+              <Cell
+                key={row + col}
+                onClickFn={() => onClickFns(row, col)}
+                content={item}
+              />
             ))}
           </div>
         ))}
-        <div></div>
+        {isWinTarget && (
+          <div className="isWin" onClick={closeWrap}>
+            <p onClick={clickP}>{whichWin} 赢了</p>
+          </div>
+        )}
       </div>
     );
   }
   return (
-    <div>
-      <ShowMap />
+    <div className="mapWrap">
+      <h1>井字棋游戏</h1> <ShowMap />
     </div>
   );
 }
