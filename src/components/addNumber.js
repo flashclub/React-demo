@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 
 export function AddNumber() {
   let [number, setNumber] = useState(0);
+  console.log(useState(12)[1]);
+  
   function addNumber() {
     // 必须在useState里改number
     setNumber(number + 1);

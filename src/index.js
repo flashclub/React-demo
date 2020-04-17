@@ -7,6 +7,7 @@ import "./index.css";
 import { Div } from "./components/tictactoe.js";
 import LearnState from "./components/learnDemo.js";
 import { AddNumber } from "./components/addNumber.js";
+import WxIndex from './program/wxIndex.js'
 function IndexPage() {
   return (
     <div>
@@ -17,6 +18,9 @@ function IndexPage() {
       <Link to="/tictactoe">井字棋</Link>
       <br />
       <Link to="/addnumber">++</Link>
+      <br />
+      <Link to="/wx">访微信</Link>
+      <br />
     </div>
   );
 }
@@ -34,6 +38,9 @@ ReactDOM.render(
       </Route>
       <Route path="/addnumber">
         <AddNumber />
+      </Route>
+      <Route path="/wx">
+        <WxIndex />
       </Route>
     </Switch>
   </Router>,
