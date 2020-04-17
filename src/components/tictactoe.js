@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
-// import "./index.css";
-
-// function Chessboard() {
+import { useHistory } from "react-router-dom";
 const initMap = [
   [null, null, null],
   [null, null, null],
@@ -13,12 +10,15 @@ export function Div() {
   let [isWinTarget, setIsWinTarget] = useState(false);
   let [n, setN] = useState(0);
   let [whichWin, setWhichWinTarget] = useState(null);
-  function onClickFns(data1, data2) {
+  function onClickFns(data1, data2, ev) {
+    console.log(ev);
+    console.log(ev.nativeEvent);
+    console.log(ev.nativeEvent.target);
+    console.log(ev.nativeEvent.currentTarget);
+
     console.log("点击了", data1, data2);
     let newMapArray = JSON.parse(JSON.stringify(mapArray));
-    // let newMapArray = mapArray.concat([]);
     if (newMapArray[data1][data2]) return alert("不可重复点击");
-
     newMapArray[data1][data2] = n % 2 ? "x" : "o";
     setN(n + 1);
     console.log(newMapArray);
@@ -90,7 +90,7 @@ export function Div() {
             {items.map((item, col) => (
               <Cell
                 key={row + col}
-                onClickFn={() => onClickFns(row, col)}
+                onClickFn={ev => onClickFns(row, col, ev)}
                 content={item}
               />
             ))}
@@ -98,16 +98,25 @@ export function Div() {
         ))}
         {isWinTarget && (
           <div className="isWin" onClick={closeWrap}>
-            <p onClick={clickP}>{whichWin} 赢了</p>
+            <p onClick={clickP}>{whichWin}赢了</p>
           </div>
         )}
       </div>
     );
   }
+  function BackIndex() {
+    let history = useHistory();
+    function handleClick() {
+      history.push("/");
+    }
+    return <button onClick={handleClick}>返回</button>;
+  }
+
   return (
     <div className="mapWrap">
-      <h1>井字棋游戏</h1> <ShowMap />
+      <h1>井字棋游戏</h1>
+      <BackIndex />
+      <ShowMap />
     </div>
   );
 }
-// ReactDOM.render(<Div />, document.getElementById("root"));
