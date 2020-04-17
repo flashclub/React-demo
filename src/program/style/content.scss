@@ -1,0 +1,46 @@
+.content-wrap {
+  padding-bottom: 40px;
+  .content-item {
+    display: flex;
+    height: 60px;
+    justify-content: space-between;
+    align-items: center;
+    > div {
+      height: 100%;
+    }
+    .content-image {
+      width: 40px;
+      height: 40px;
+      border-radius: 5px;
+      background-color: #0f0;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    .content-nameandchat {
+      padding: 5px;
+      font-size: 16px;
+      line-height: 1;
+      flex: 1;
+      text-align: left;
+      border-bottom: 1px solid #efefef;
+      flex-wrap: wrap;
+      display: flex;
+      align-content: space-around;
+      .nick-name {
+        width: 100%;
+      }
+      .last-chat-history {
+        // margin-top: 10px;
+        font-size: 12px;
+      }
+    }
+    .content-time {
+      width: 100px;
+      overflow: hidden;
+      line-height: 60px;
+      border-bottom: 1px solid #efefef;
+      text-align: right;
+      padding-right: 10px;
+    }
+  }
+}

@@ -7,7 +7,8 @@ import "./index.css";
 import { Div } from "./components/tictactoe.js";
 import LearnState from "./components/learnDemo.js";
 import { AddNumber } from "./components/addNumber.js";
-import WxIndex from './program/wxIndex.js'
+import WxIndex from "./program/wx/wxIndex.js";
+import Wxfindpage from "./program/wx/wxfindpage.js";
 function IndexPage() {
   return (
     <div>
@@ -41,6 +42,9 @@ ReactDOM.render(
       </Route>
       <Route path="/wx">
         <WxIndex />
+      </Route>
+      <Route path="/find">
+        <Wxfindpage />
       </Route>
     </Switch>
   </Router>,
