@@ -8,7 +8,12 @@ import { Div } from "./components/tictactoe.js";
 import LearnState from "./components/learnDemo.js";
 import { AddNumber } from "./components/addNumber.js";
 import WxIndex from "./program/wx/wxIndex.js";
-import Wxfindpage from "./program/wx/wxfindpage.js";
+import WxChat from "./program/wx/wxChat.js";
+import WxContacts from "./program/wx/wxContacts.js";
+import WxFindpage from "./program/wx/wxFindpage.js";
+import WxMypage from "./program/wx/wxMypage.js";
+import WxChatdetails from "./program/wx/wxChatdetails.js";
+import WxBottomtab from "./program/wx/wxBottomtab.js";
 function IndexPage() {
   return (
     <div>
@@ -20,7 +25,7 @@ function IndexPage() {
       <br />
       <Link to="/addnumber">++</Link>
       <br />
-      <Link to="/wx">访微信</Link>
+      <Link to="/wxindex">访微信</Link>
       <br />
     </div>
   );
@@ -40,11 +45,24 @@ ReactDOM.render(
       <Route path="/addnumber">
         <AddNumber />
       </Route>
-      <Route path="/wx">
-        <WxIndex />
+      <Route path="/wxindex">
+        <WxChat />
+        <WxBottomtab />
       </Route>
-      <Route path="/find">
-        <Wxfindpage />
+      <Route path="/wxcontacts">
+        <WxContacts />
+        <WxBottomtab />
+      </Route>
+      <Route path="/wxfindpage">
+        <WxFindpage />
+        <WxBottomtab />
+      </Route>
+      <Route path="/wxchatdetails">
+        <WxChatdetails />
+      </Route>
+      <Route path="/wxmypage">
+        <WxMypage />
+        <WxBottomtab />
       </Route>
     </Switch>
   </Router>,

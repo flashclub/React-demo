@@ -1,0 +1,56 @@
+import React, { useState, useEffect } from "react";
+import "../style/chatdetails.scss";
+export default function ContentDetails(params) {
+  let initPerson = { a: "", b: "" };
+  let initRole = '0'
+  // let [person, setPerson] = useState(initPerson);
+  // let [ownRole,setOwnRole] = useState(initRole)
+  // Object.assign
+  // setPerson(Object.assign(person,{a:'lili',b:'lala'}))
+  // setOwnRole('b')
+  function getChatList(){
+    return [
+      {
+        a:['我通过了你的好友请求','你好']
+      },
+      {
+        b:['你好','你是谁']
+      },
+      {
+        a:['你猜猜呢额']
+      },
+      {
+        b:['儿子？']
+      },
+      {
+        b:['？？？']
+      },
+      {
+        a:['你在无中生有暗度陈仓凭空捏造凭空想象，我是你爹']
+      },
+    ]
+  }
+  return (
+    <div className="chat-details">
+      {getChatList().map((items) =>
+        Object.values(items)[0].map((item) => (
+          <div key={item+items} className="detail-content">
+            <div className={Object.keys(items)[0] === "a" ? "left" : "right"}>
+              <div className="img"></div>
+              <div className="nameandwords">
+                <div className="nick-name">lili</div>
+                <div
+                  className={
+                    Object.keys(items)[0] === "b" ? "own-chat-words" : "chat-words"
+                  }
+                >
+                  {item}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      )}
+    </div>
+  );
+}
