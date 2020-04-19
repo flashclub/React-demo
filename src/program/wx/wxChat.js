@@ -41,6 +41,60 @@ export default function ContentP(props) {
         .getHours()
         .toString()} : ${new Date().getMinutes().toString()}`,
     },
+    {
+      id: 4,
+      img: "",
+      nickName: "用户名，",
+      lastChatHistory: "最后一条聊天记录",
+      time: `${new Date()
+        .getHours()
+        .toString()} : ${new Date().getMinutes().toString()}`,
+    },
+    {
+      id: 5,
+      img: "",
+      nickName: "用户名，",
+      lastChatHistory: "最后一条聊天记录",
+      time: `${new Date()
+        .getHours()
+        .toString()} : ${new Date().getMinutes().toString()}`,
+    },
+    {
+      id: 6,
+      img: "",
+      nickName: "用户名，",
+      lastChatHistory: "最后一条聊天记录",
+      time: `${new Date()
+        .getHours()
+        .toString()} : ${new Date().getMinutes().toString()}`,
+    },
+    {
+      id: 7,
+      img: "",
+      nickName: "用户名，",
+      lastChatHistory: "最后一条聊天记录",
+      time: `${new Date()
+        .getHours()
+        .toString()} : ${new Date().getMinutes().toString()}`,
+    },
+    {
+      id: 8,
+      img: "",
+      nickName: "用户名，",
+      lastChatHistory: "最后一条聊天记录",
+      time: `${new Date()
+        .getHours()
+        .toString()} : ${new Date().getMinutes().toString()}`,
+    },
+    {
+      id: 9,
+      img: "",
+      nickName: "用户名，",
+      lastChatHistory: "最后一条聊天记录",
+      time: `${new Date()
+        .getHours()
+        .toString()} : ${new Date().getMinutes().toString()}`,
+    },
   ];
   const [indexList, setIndexList] = useState(initialValue);
   useEffect(() => {
