@@ -25,7 +25,7 @@ function IndexPage() {
       <br />
       <Link to="/addnumber">++</Link>
       <br />
-      <Link to="/wxindex">访微信</Link>
+      <Link to="/wxchatpage">访微信</Link>
       <br />
     </div>
   );
@@ -45,7 +45,7 @@ ReactDOM.render(
       <Route path="/addnumber">
         <AddNumber />
       </Route>
-      <Route path="/wxindex">
+      <Route path="/wxchatpage">
         <WxChat />
         <WxBottomtab />
       </Route>

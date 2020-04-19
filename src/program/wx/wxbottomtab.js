@@ -13,26 +13,26 @@ export default function BottomTab(props) {
   return (
     <div className="bottom-wrap">
       <div
-        className={whichOne === 0 && "checked"}
-        onClick={() => shiftPage("/wxindex",0)}
+        className={whichOne === 0 ? "checked" : undefined}
+        onClick={() => shiftPage("/wxchatpage", 0)}
       >
         微信
       </div>
       <div
-        className={whichOne === 1 && "checked"}
-        onClick={() => shiftPage("/wxcontacts",1)}
+        className={whichOne === 1 ? "checked" : undefined}
+        onClick={() => shiftPage("/wxcontacts", 1)}
       >
         通讯录
       </div>
       <div
-        className={whichOne === 2 && "checked"}
-        onClick={() => shiftPage("/wxfindpage",2)}
+        className={whichOne === 2 ? "checked" : undefined}
+        onClick={() => shiftPage("/wxfindpage", 2)}
       >
         发现
       </div>
       <div
-        className={whichOne === 3 && "checked"}
-        onClick={() => shiftPage("/wxmypage",3)}
+        className={whichOne === 3 ? "checked":undefined}
+        onClick={() => shiftPage("/wxmypage", 3)}
       >
         我的
       </div>

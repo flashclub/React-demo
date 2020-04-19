@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import InputWrap from './component/wxBottomInput.jsx'
+import Img from './component/imgBox.jsx'
 import "../style/chatdetails.scss";
 export default function ContentDetails(params) {
   let initPerson = { a: "", b: "" };
@@ -43,9 +44,11 @@ export default function ContentDetails(params) {
   ];
   const [chatList, setChatList] = useState(initChatList);
   function clickSend(data){
-    console.log('点击了 发送',data);
+    // console.log('点击了 发送',data);
     setChatList(chatList.concat({ b: [data] }));
-    
+    return new Promise((resolve,reject)=>{
+      resolve()
+    })
   }
   useEffect(() => {
     getElementsByClassName("chat-details").scrollTop = getElementsByClassName(
@@ -106,7 +109,8 @@ export default function ContentDetails(params) {
         Object.values(items)[0].map((item) => (
           <div key={item + items} className="detail-content">
             <div className={Object.keys(items)[0] === "a" ? "left" : "right"}>
-              <div className="img"></div>
+              {/* <div className="img"></div> */}
+              <Img/>
               <div className="nameandwords">
                 <div className="nick-name">lili</div>
                 <div

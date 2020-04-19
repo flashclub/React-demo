@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-
+import Img from './component/imgBox.jsx'
 import "../style/chat.scss";
 
 export default function ContentP(props) {
@@ -61,7 +61,8 @@ export default function ContentP(props) {
             onClick={() => jumpDetails()}
             key={items.id}
           >
-            <div className="content-image"></div>
+            {/* <div className="content-image"></div> */}
+            <Img size = '50'/>
             <div className="content-nameandchat">
               <p className="nick-name">{items.nickName}</p>
               <p className="last-chat-history">{items.lastChatHistory}</p>

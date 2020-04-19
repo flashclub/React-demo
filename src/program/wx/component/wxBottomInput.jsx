@@ -10,6 +10,7 @@ export default function App(prop){
     shiftPlusOrSend(value)
   }
   function shiftPlusOrSend(value = "") {
+    // console.log('触发 plus or send');
     setinputValue(value);
     if (value.length >= 1) return setEnablePluaFlag(false);
     return setEnablePluaFlag(true);
@@ -27,7 +28,7 @@ export default function App(prop){
         <div>表情</div>
         {enablePluaFlag && <div>加号</div>}
         {!enablePluaFlag && (
-          <div onClick={() => prop.detailOnLlick(inputValue)}>发送</div>
+          <div onClick={() => prop.detailOnLlick(inputValue).then(shiftPlusOrSend)}>发送</div>
         )}
       </div>
     </div>
