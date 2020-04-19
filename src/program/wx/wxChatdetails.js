@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import InputWrap from './component/wxBottomInput.jsx'
 import "../style/chatdetails.scss";
 export default function ContentDetails(params) {
   let initPerson = { a: "", b: "" };
@@ -8,6 +9,62 @@ export default function ContentDetails(params) {
   // Object.assign
   // setPerson(Object.assign(person,{a:'lili',b:'lala'}))
   // setOwnRole('b')
+  let initChatList = [
+    {
+      a: ["我通过了你的好友请求", "你好"],
+    },
+    {
+      b: ["你好", "你是谁"],
+    },
+    {
+      a: ["你猜猜呢额"],
+    },
+    {
+      b: ["儿子？"],
+    },
+    {
+      b: ["？？？"],
+    },
+    {
+      a: ["你在无中生有暗度陈仓凭空捏造凭空想象，我是你爹"],
+    },
+    {
+      b: ["？？？"],
+    },
+    {
+      a: ["你在无中生有暗度陈仓凭空捏造凭空想象，我是你爹"],
+    },
+    {
+      b: ["？？？"],
+    },
+    {
+      a: ["你在无中生有暗度陈仓凭空捏造凭空想象，我是你爹"],
+    },
+  ];
+  const [chatList, setChatList] = useState(initChatList);
+  function clickSend(data){
+    console.log('点击了 发送',data);
+    setChatList(chatList.concat({ b: [data] }));
+    
+  }
+  useEffect(() => {
+    getElementsByClassName("chat-details").scrollTop = getElementsByClassName(
+      "chat-wrap"
+      ).clientHeight;
+    console.log("数据改好了");
+  }, [chatList]);
+  function getElementsByClassName(className){
+    return document.getElementsByClassName(className)[0]
+  }
+  function clickInput(params) {
+    console.log("点击 input", getElementsByClassName("chat-wrap").clientHeight);
+    setTimeout(() => {
+      
+      getElementsByClassName("chat-details").scrollTop =
+        getElementsByClassName("chat-wrap").offsetHeight -
+        getElementsByClassName("chat-details").offsetHeight;
+    }, 80);
+  }
   function getChatList(){
     return [
       {
@@ -28,20 +85,35 @@ export default function ContentDetails(params) {
       {
         a:['你在无中生有暗度陈仓凭空捏造凭空想象，我是你爹']
       },
+      {
+        b:['？？？']
+      },
+      {
+        a:['你在无中生有暗度陈仓凭空捏造凭空想象，我是你爹']
+      },
+      {
+        b:['？？？']
+      },
+      {
+        a:['你在无中生有暗度陈仓凭空捏造凭空想象，我是你爹']
+      },
     ]
   }
   return (
     <div className="chat-details">
-      {getChatList().map((items) =>
+      <div className="chat-wrap">
+      {chatList.map((items) =>
         Object.values(items)[0].map((item) => (
-          <div key={item+items} className="detail-content">
+          <div key={item + items} className="detail-content">
             <div className={Object.keys(items)[0] === "a" ? "left" : "right"}>
               <div className="img"></div>
               <div className="nameandwords">
                 <div className="nick-name">lili</div>
                 <div
                   className={
-                    Object.keys(items)[0] === "b" ? "own-chat-words" : "chat-words"
+                    Object.keys(items)[0] === "b"
+                      ? "own-chat-words"
+                      : "chat-words"
                   }
                 >
                   {item}
@@ -51,6 +123,8 @@ export default function ContentDetails(params) {
           </div>
         ))
       )}
+      <InputWrap detailClickInput={clickInput} detailOnLlick={clickSend} />
+      </div>
     </div>
   );
 }
