@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 // import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
+import "./style/index.scss";
 import ReactDOM from "react-dom";
 import { Div } from "./components/tictactoe.js";
 import LearnState from "./components/learnDemo.js";
@@ -14,18 +16,14 @@ import WxMypage from "./program/wx/wxMypage.js";
 import WxChatdetails from "./program/wx/wxChatdetails.js";
 import WxBottomtab from "./program/wx/wxBottomtab.js";
 function IndexPage() {
+  let history = useHistory();
   return (
     <div className="index-page">
-      <Link to="/">首页</Link>
-      <br />
-      {/* <Link to="/setstate">setState</Link> */}
-      {/* <br /> */}
-      <Link to="/tictactoe">井字棋</Link>
-      <br />
-      {/* <Link to="/addnumber">++</Link> */}
-      {/* <br /> */}
-      <Link to="/wxchatpage">访微信</Link>
-      <br />
+      <h1>首页</h1>
+      <div onClick={() => history.push("/tictactoe")}>井字棋</div>
+      <div tabIndex="0" onClick={() => history.push("/wxchatpage")}>
+        仿微信
+      </div>
     </div>
   );
 }
