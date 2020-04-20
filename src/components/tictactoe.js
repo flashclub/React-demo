@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import "../style/tictactoe.scss";
 const initMap = [
   [null, null, null],
   [null, null, null],
@@ -11,12 +12,6 @@ export function Div() {
   let [n, setN] = useState(0);
   let [whichWin, setWhichWinTarget] = useState(null);
   function onClickFns(data1, data2, ev) {
-    console.log(ev);
-    console.log(ev.nativeEvent);
-    console.log(ev.nativeEvent.target);
-    console.log(ev.nativeEvent.currentTarget);
-
-    console.log("点击了", data1, data2);
     let newMapArray = JSON.parse(JSON.stringify(mapArray));
     if (newMapArray[data1][data2]) return alert("不可重复点击");
     newMapArray[data1][data2] = n % 2 ? "x" : "o";
@@ -109,7 +104,11 @@ export function Div() {
     function handleClick() {
       history.push("/");
     }
-    return <button onClick={handleClick}>返回</button>;
+    return (
+      <div className="back-button" onClick={handleClick}>
+        返回
+      </div>
+    );
   }
 
   return (

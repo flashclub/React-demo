@@ -1,12 +1,14 @@
+@import "index.scss";
 .findpage-wrap {
-  background-color: #f0f0f0;
+  // background-color: #f0f0f0;
+  background-color: $backcolor;
   min-height: 100vh;
   .findpage-item {
     display: flex;
     height: 55px;
     line-height: 55px;
-    margin-bottom: 10px;
     background-color: #fff;
+    padding-left: 16px;
   }
   .findpage-left-wrap {
     display: flex;
@@ -15,12 +17,13 @@
       margin-left: 10px;
     }
   }
-  .findpage-icon {
-    // display: flex;
-    width: 40px;
-    height: 40px;
-    border-radius: 5px;
-    background-color: red;
-    margin-left: 10px;
+  .findpage-remind {
+    margin-left: 16px;
+    flex: 1;
+    > p {
+    }
+  }
+  .border-bottom {
+    border-bottom: $borderbottom;
   }
 }
