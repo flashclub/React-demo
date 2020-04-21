@@ -21,16 +21,7 @@ export default function App() {
       moveDiv({ x: x - mouseXY[0], y: y - mouseXY[1] });
     }
   }
-  function touchDiv(event) {
-    console.log(event);
-
-    console.log(event.nativeEvent);
-
-    console.log(event.nativeEvent.touches[0]);
-  }
   function touchMove(e) {
-    console.log(e);
-
     setCanMove(false);
     let nativeEvent = e.nativeEvent.touches[0];
     if (isMouseDown) {
@@ -45,8 +36,6 @@ export default function App() {
     setIsMouseDown(true);
   }
   function moveDiv(event) {
-    console.log(event);
-
     setText(` 左${Math.floor(event.x)} 上${Math.floor(event.y)}`);
     setLeftTop({ top: event.y - 50 + "px", left: event.x - 50 + "px" });
   }
