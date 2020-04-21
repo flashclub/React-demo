@@ -6,7 +6,7 @@ const initMap = [
   [null, null, null],
   [null, null, null]
 ];
-export function Div() {
+export default function Div() {
   let [mapArray, setMapArray] = useState(initMap);
   let [isWinTarget, setIsWinTarget] = useState(false);
   let [n, setN] = useState(0);

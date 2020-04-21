@@ -1,14 +1,21 @@
 import React, { useState } from "react";
 // import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useHistory,
+  Link
+} from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 import "./style/index.scss";
 import ReactDOM from "react-dom";
-import { Div } from "./components/tictactoe.js";
+import Tictactoe from "./components/tictactoe.js";
 import DragDiv from "./components/dragDiv.jsx";
 import LearnState from "./components/learnDemo.js";
 import { AddNumber } from "./components/addNumber.js";
+import Nav1 from "./components/nav1.jsx";
 import WxIndex from "./program/wx/wxIndex.js";
 import WxChat from "./program/wx/wxChat.js";
 import WxContacts from "./program/wx/wxContacts.js";
@@ -22,10 +29,9 @@ function IndexPage() {
     <div className="index-page">
       <h1>首页</h1>
       <div onClick={() => history.push("/tictactoe")}>井字棋</div>
-      <div tabIndex="0" onClick={() => history.push("/wxchatpage")}>
-        仿微信
-      </div>
+      <div onClick={() => history.push("/wxchatpage")}>仿微信</div>
       <div onClick={() => history.push("/dragdiv")}>拖拽div</div>
+      <div onClick={() => history.push("/nav1")}>导航1</div>
     </div>
   );
 }
@@ -35,21 +41,22 @@ ReactDOM.render(
       <Route exact path="/">
         <IndexPage />
       </Route>
-      <Route path="/tictactoe">
-        <Div />
+      <Route path="/tictactoe" component={Tictactoe} />
+      <Route path="/wxchatpage">
+        <WxChat />
+        <WxBottomtab />
       </Route>
-      <Route page="/dragdiv">
+      <Route path="/dragdiv">
         <DragDiv />
+      </Route>
+      <Route path="/nav1">
+        <Nav1 />
       </Route>
       <Route path="/setstate">
         <LearnState />
       </Route>
       <Route path="/addnumber">
         <AddNumber />
-      </Route>
-      <Route path="/wxchatpage">
-        <WxChat />
-        <WxBottomtab />
       </Route>
       <Route path="/wxcontacts">
         <WxContacts />
