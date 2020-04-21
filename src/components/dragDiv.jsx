@@ -26,7 +26,7 @@ export default function App() {
     let nativeEvent = e.nativeEvent.touches[0];
     if (isMouseDown) {
       let { clientX, clientY } = nativeEvent;
-      moveDiv({ x: clientX, y: clientY });
+      moveDiv({ x: clientX - 50, y: clientY - 50 });
     }
   }
   function touchDown(e) {
@@ -37,7 +37,7 @@ export default function App() {
   }
   function moveDiv(event) {
     setText(` 左${Math.floor(event.x)} 上${Math.floor(event.y)}`);
-    setLeftTop({ top: event.y - 50 + "px", left: event.x - 50 + "px" });
+    setLeftTop({ top: event.y + "px", left: event.x + "px" });
   }
   return (
     <div
