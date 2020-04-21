@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import "./style/index.scss";
 import ReactDOM from "react-dom";
 import { Div } from "./components/tictactoe.js";
+import DragDiv from "./components/dragDiv.jsx";
 import LearnState from "./components/learnDemo.js";
 import { AddNumber } from "./components/addNumber.js";
 import WxIndex from "./program/wx/wxIndex.js";
@@ -24,6 +25,7 @@ function IndexPage() {
       <div tabIndex="0" onClick={() => history.push("/wxchatpage")}>
         仿微信
       </div>
+      <div onClick={() => history.push("/dragdiv")}>拖拽div</div>
     </div>
   );
 }
@@ -35,6 +37,9 @@ ReactDOM.render(
       </Route>
       <Route path="/tictactoe">
         <Div />
+      </Route>
+      <Route page="/dragdiv">
+        <DragDiv />
       </Route>
       <Route path="/setstate">
         <LearnState />
