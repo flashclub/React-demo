@@ -12,10 +12,10 @@ import {
 import "./style/index.scss";
 import ReactDOM from "react-dom";
 import Tictactoe from "./components/tictactoe.js";
-import DragDiv from "./components/dragDiv.jsx";
+import DragDiv from "./components/dragDiv.js";
 import LearnState from "./components/learnDemo.js";
 import { AddNumber } from "./components/addNumber.js";
-import Nav1 from "./components/nav1.jsx";
+import Nav1 from "./components/nav1.js";
 import WxIndex from "./program/wx/wxIndex.js";
 import WxChat from "./program/wx/wxChat.js";
 import WxContacts from "./program/wx/wxContacts.js";
