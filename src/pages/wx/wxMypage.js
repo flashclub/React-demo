@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ImgBox from "./component/imgBox.jsx";
-import "../style/mypage.scss";
+import "../../style/wx/mypage.scss";
 
 export default function Contacts(params) {
   return (

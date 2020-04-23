@@ -4,7 +4,7 @@ import Chat from "./wxChat.js";
 import ChatDetails from "./wxChatdetails.js";
 import FindPage from "./wxFindpage.js";
 import Contacts from "./wxContacts.js";
-import "../style/root.scss";
+import "../../style/wx/root.scss";
 import { useHistory } from "react-router-dom";
 
 function App() {

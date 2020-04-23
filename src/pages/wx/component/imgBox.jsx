@@ -4,5 +4,5 @@ import "./imgBox.scss";
 export default function Img(prop) {
   let { size } = prop;
   size || (size = 40);
-  return <span className={"img-" + size}></span>;
+  return <span className={"img-box img-" + size}></span>;
 }

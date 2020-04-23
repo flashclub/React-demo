@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ImgBox from "./component/imgBox.jsx";
 
-import "../style/findpage.scss";
+import "../../style/wx/findpage.scss";
 
 function FindItem() {
   return (

@@ -1,14 +1,14 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import "../style/bottom.scss";
+import "../../style/wx/bottom.scss";
 
 export default function BottomTab(props) {
   console.log(props);
-  const [whichOne, setWhichOne] = useState(0)
+  const [whichOne, setWhichOne] = useState(0);
   let history = useHistory();
-  function shiftPage(path,num) {
+  function shiftPage(path, num) {
     history.push(path);
-    setWhichOne(num)
+    setWhichOne(num);
   }
   return (
     <div className="bottom-wrap">
@@ -31,7 +31,7 @@ export default function BottomTab(props) {
         发现
       </div>
       <div
-        className={whichOne === 3 ? "checked":undefined}
+        className={whichOne === 3 ? "checked" : undefined}
         onClick={() => shiftPage("/wxmypage", 3)}
       >
         我的

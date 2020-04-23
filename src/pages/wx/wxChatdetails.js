@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import InputWrap from "./component/wxBottomInput.jsx";
 import Img from "./component/imgBox.jsx";
-import "../style/chatdetails.scss";
+import "../../style/wx/chatdetails.scss";
 export default function ContentDetails(params) {
   let initPerson = { a: "", b: "" };
   let initRole = "0";

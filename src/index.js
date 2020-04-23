@@ -9,20 +9,18 @@ import {
 } from "react-router-dom";
 // import { useHistory } from "react-router-dom";
 
+import "./style/root.scss";
 import "./style/index.scss";
 import ReactDOM from "react-dom";
-import Tictactoe from "./components/tictactoe.js";
-import DragDiv from "./components/dragDiv.js";
-import LearnState from "./components/learnDemo.js";
-import { AddNumber } from "./components/addNumber.js";
-import Nav1 from "./components/nav1.js";
-import WxIndex from "./program/wx/wxIndex.js";
-import WxChat from "./program/wx/wxChat.js";
-import WxContacts from "./program/wx/wxContacts.js";
-import WxFindpage from "./program/wx/wxFindpage.js";
-import WxMypage from "./program/wx/wxMypage.js";
-import WxChatdetails from "./program/wx/wxChatdetails.js";
-import WxBottomtab from "./program/wx/wxBottomtab.js";
+import Tictactoe from "./pages/tictactoe.js";
+import DragDiv from "./pages/dragDiv.js";
+import WxChat from "./pages/wx/wxChat.js";
+import Navigator from "./pages/navigator/index.js";
+import WxContacts from "./pages/wx/wxContacts.js";
+import WxFindpage from "./pages/wx/wxFindpage.js";
+import WxMypage from "./pages/wx/wxMypage.js";
+import WxChatdetails from "./pages/wx/wxChatdetails.js";
+import WxBottomtab from "./pages/wx/wxBottomtab.js";
 function IndexPage() {
   let history = useHistory();
   return (
@@ -49,15 +47,7 @@ ReactDOM.render(
       <Route path="/dragdiv">
         <DragDiv />
       </Route>
-      <Route path="/nav1">
-        <Nav1 />
-      </Route>
-      <Route path="/setstate">
-        <LearnState />
-      </Route>
-      <Route path="/addnumber">
-        <AddNumber />
-      </Route>
+      <Route path="/nav1" component={Navigator} />
       <Route path="/wxcontacts">
         <WxContacts />
         <WxBottomtab />
