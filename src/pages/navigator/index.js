@@ -3,6 +3,9 @@ import "../../style/nav1.scss";
 export default function App() {
   let initInputValue = "";
   const [inputValue, setInputValue] = useState(initInputValue);
+  function getInputValue(){
+
+  }
   return (
     <div className="nav1">
       <div className="bg-wrap"></div>
@@ -12,7 +15,11 @@ export default function App() {
         </header>
         <div className="input-wrap">
           <div className="input-content">
-            <input value={inputValue} placeholder="输入关键字" />
+            <input
+              value={inputValue}
+              onChange={getInputValue}
+              placeholder="输入关键字"
+            />
             <span className="nav-search">搜索</span>
           </div>
         </div>
