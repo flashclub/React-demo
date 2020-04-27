@@ -60,6 +60,14 @@ export default function Div() {
         console.log("error 4");
         return true;
       }
+      console.log([...array].includes(null));
+      const newArray = [];
+      for (let index = 0; index < array.length; index++) {
+        const element = array[index];
+        newArray.concat(...newArray, [...element]);
+      }
+      console.log(69, newArray);
+      console.log(70, newArray.includes(null));
     }
   }
   function Cell(props) {
