@@ -1,4 +1,18 @@
 .shiftItem {
   padding: 20px 0px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  button{
+    font-size: 16px;
+    padding: 5px 10px;
+    // box-shadow: inset 0 0 10px #000;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .choose{
+    box-shadow: inset 0 0 10px blue;
+
+  }
 }

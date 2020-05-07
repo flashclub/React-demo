@@ -1,20 +1,31 @@
 import React, { useState } from "react";
 import "../../style/nav1.scss";
 import PickItem from "./components/shiftItem.js";
+let platformUrl = {
+  zhihu: "https://www.zhihu.com/search?type=content&q=",
+  sifou: "https://segmentfault.com/search?q=",
+  juejin: function(value){
+    return `https://juejin.im/search?query=${value}&type=all`;
+  },
+};
 export default function App() {
   let initInputValue = "";
   const [inputValue, setInputValue] = useState(initInputValue);
+  const [target, setTarget] = useState('zhihu');
+
   function getInputValue(event) {
     console.log(event.target.value);
     setInputValue(event.target.value);
   }
   function search(params) {
-    // 知乎
-    window.location.href = `https://www.zhihu.com/search?type=content&q=${inputValue}`;
-    // 思否
-    window.location.href = `https://segmentfault.com/search?q=${inputValue}`;
-    // 掘金
-    window.location.href = `https://juejin.im/search?query=${inputValue}&type=all`;
+    if (typeof platformUrl[target] === 'string') {
+      window.location.href = platformUrl[target] + inputValue;
+    } else {
+      window.location.href = platformUrl[target](inputValue);
+    }
+  }
+  function clickPlatform(target) {
+    setTarget(target)
   }
   return (
     <div className="nav1">
@@ -23,7 +34,7 @@ export default function App() {
         <header className="header">
           <p>前端导航</p>
         </header>
-        <PickItem />
+        <PickItem clickFn = {clickPlatform}/>
         <div className="input-wrap">
           <div className="input-content">
             <input

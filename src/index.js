@@ -10,8 +10,8 @@ import {
 // import { useHistory } from "react-router-dom";
 
 import "./style/root.scss";
-import "./style/index.scss";
 import ReactDOM from "react-dom";
+import IndexPage from "./pages/indexpage.js";
 import Tictactoe from "./pages/tictactoe.js";
 import DragDiv from "./pages/dragDiv.js";
 import WxChat from "./pages/wx/wxChat.js";
@@ -21,18 +21,7 @@ import WxFindpage from "./pages/wx/wxFindpage.js";
 import WxMypage from "./pages/wx/wxMypage.js";
 import WxChatdetails from "./pages/wx/wxChatdetails.js";
 import WxBottomtab from "./pages/wx/wxBottomtab.js";
-function IndexPage() {
-  let history = useHistory();
-  return (
-    <div className="index-page">
-      <h1>首页</h1>
-      <div onClick={() => history.push("/tictactoe")}>井字棋</div>
-      <div onClick={() => history.push("/wxchatpage")}>仿微信</div>
-      <div onClick={() => history.push("/dragdiv")}>拖拽div</div>
-      <div onClick={() => history.push("/nav1")}>导航1</div>
-    </div>
-  );
-}
+
 ReactDOM.render(
   <Router>
     <Switch>

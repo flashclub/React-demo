@@ -65,10 +65,17 @@
     position: absolute;
     top: 0rem;
     left: 0rem;
-    background-image: url("../static/img/bg.jpg");
-    background-size: cover;
+    // background-image: url("../static/img/bg.jpg");
+    background-image: linear-gradient(0deg,#71c9ce,#a6e3e9,#cbf1f5,#e3fdfd);
+    background-size: 400%;
     width: 100%;
     height: 100%;
     z-index: -10;
+    animation: bgloop 8s infinite;
+  }
+  @keyframes bgloop {
+    100{
+      background-position: -400%;
+    }
   }
 }
