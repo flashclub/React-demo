@@ -17,7 +17,8 @@ export default function IndexPage() {
       <div onClick={() => history.push("/wxchatpage")}>仿微信</div>
       <div onClick={() => history.push("/dragdiv")}>拖拽div</div>
       <div onClick={() => history.push("/nav1")}>导航1</div>
-      <img src={imgUrl} className='hide' alt="" />
+      <div onClick={() => history.push("/thermos")}>纯CSS画的膳魔师保温杯，还原度99.999%</div>
+      <img src={imgUrl} className="hide" alt="" />
     </div>
   );
 }

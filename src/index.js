@@ -14,6 +14,7 @@ import ReactDOM from "react-dom";
 import IndexPage from "./pages/indexpage.js";
 import Tictactoe from "./pages/tictactoe.js";
 import DragDiv from "./pages/dragDiv.js";
+import Thermos from "./pages/thermos.js";
 import WxChat from "./pages/wx/wxChat.js";
 import Navigator from "./pages/navigator/index.js";
 import WxContacts from "./pages/wx/wxContacts.js";
@@ -29,6 +30,7 @@ ReactDOM.render(
         <IndexPage />
       </Route>
       <Route path="/tictactoe" component={Tictactoe} />
+      <Route path="/thermos" component={Thermos} />
       <Route path="/wxchatpage">
         <WxChat />
         <WxBottomtab />
