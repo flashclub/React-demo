@@ -32,7 +32,6 @@ export default function Div() {
         element[1] === element[2] &&
         element[2] !== null
       ) {
-        console.log("error 2");
         return true;
       }
       if (
@@ -40,8 +39,6 @@ export default function Div() {
         array[1][index] === array[2][index] &&
         array[2][index] != null
       ) {
-        console.log("error x");
-
         return true;
       }
       if (
@@ -49,7 +46,6 @@ export default function Div() {
         array[1][1] === array[2][2] &&
         array[2][2] != null
       ) {
-        console.log("error 3");
         return true;
       }
       if (
@@ -57,17 +53,17 @@ export default function Div() {
         array[1][1] === array[2][0] &&
         array[2][0] != null
       ) {
-        console.log("error 4");
         return true;
       }
-      console.log([...array].includes(null));
-      const newArray = [];
+      let newArray = [];
       for (let index = 0; index < array.length; index++) {
         const element = array[index];
-        newArray.concat(...newArray, [...element]);
+        console.log(element);
+        
+        // newArray = newArray.concat(...newArray, ...element);
       }
-      console.log(69, newArray);
-      console.log(70, newArray.includes(null));
+      console.log('newArray',newArray);
+      
     }
   }
   function Cell(props) {
