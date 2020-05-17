@@ -20,11 +20,12 @@ export default function Div() {
     setMapArray(newMapArray);
     if (isWin(newMapArray)) {
       console.log("win", newMapArray[data1][data2]);
-      setWhichWinTarget(newMapArray[data1][data2]);
+      setWhichWinTarget(newMapArray[data1][data2]+'赢了');
       setIsWinTarget(true);
     }
   }
   function isWin(array) {
+    let newArray = [];
     for (let index = 0; index < array.length; index++) {
       const element = array[index];
       if (
@@ -55,15 +56,14 @@ export default function Div() {
       ) {
         return true;
       }
-      let newArray = [];
-      for (let index = 0; index < array.length; index++) {
-        const element = array[index];
-        console.log(element);
-        
-        // newArray = newArray.concat(...newArray, ...element);
-      }
-      console.log('newArray',newArray);
-      
+      console.log('element',element);
+      newArray.push(...element)
+      console.log(newArray);
+    }
+    let fullTarget = newArray.every((item) => item !== null);
+    if (fullTarget) {
+      setWhichWinTarget('游戏结束');
+      setIsWinTarget(true);
     }
   }
   function Cell(props) {
@@ -89,7 +89,7 @@ export default function Div() {
             {items.map((item, col) => (
               <Cell
                 key={row + col}
-                onClickFn={ev => onClickFns(row, col, ev)}
+                onClickFn={(ev) => onClickFns(row, col, ev)}
                 content={item}
               />
             ))}
@@ -97,7 +97,7 @@ export default function Div() {
         ))}
         {isWinTarget && (
           <div className="isWin" onClick={closeWrap}>
-            <p onClick={clickP}>{whichWin}赢了</p>
+            <p onClick={clickP}>{whichWin}</p>
           </div>
         )}
       </div>
