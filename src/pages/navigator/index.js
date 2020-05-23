@@ -11,13 +11,22 @@ let platformUrl = {
 export default function App() {
   let initInputValue = "";
   const [inputValue, setInputValue] = useState(initInputValue);
+  const [shiftItemMove, setShiftItemMove] = useState('');
   const [target, setTarget] = useState('zhihu');
 
   function getInputValue(event) {
     console.log(event.target.value);
     setInputValue(event.target.value);
   }
+  function createIframe(parentNode){
+    // let myIframe = document.createElement('iframe')
+    
+  }
   function search(params) {
+    setShiftItemMove("shiftItemMove");
+    console.log('search');
+    
+    return 
     if (typeof platformUrl[target] === 'string') {
       window.location.href = platformUrl[target] + inputValue;
     } else {
@@ -34,7 +43,7 @@ export default function App() {
         <header className="header">
           <p>前端导航</p>
         </header>
-        <PickItem clickFn = {clickPlatform}/>
+        <PickItem className={shiftItemMove} clickFn={clickPlatform} />
         <div className="input-wrap">
           <div className="input-content">
             <input

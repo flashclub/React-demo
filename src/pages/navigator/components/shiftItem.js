@@ -24,7 +24,7 @@ function App(props) {
     props.clickFn(target)
   }
   return (
-    <div className="shiftItem" onClick={changePlatform}>
+    <div className=" " className={'shiftItem ' +  props.className} onClick={changePlatform}>
       {platformArray.map((item) => {
         return (
           <button key={item.target} target={item.target} className={platform===item.target?'choose':''}>
